@@ -1,0 +1,56 @@
+<ion-content color = "medium" [fullscreen]="true">
+  <div id="posicionamento">
+    <div id = "title">
+    <ion-title color = "light" >Lista de Compras</ion-title>
+  </div>
+    <ion-row>
+    </ion-row>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="5">
+          
+          <ion-item  >
+            <ion-input  placeholder="Nome do Produto" [(ngModel)]="texto"></ion-input>
+          </ion-item>
+        
+        </ion-col>
+        <ion-col size="4">
+          <ion-item  >
+            <ion-input placeholder="Preço do produto" [(ngModel)]="valor"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="3">
+          <ion-button color="success" size="medium" (click)="adiciona()">
+            <ion-icon name="archive-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item *ngFor = "let elemento_da_lista of variavel_lista; index as i">
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                 {{elemento_da_lista[1][0]}}
+              </ion-col>
+                <ion-col size="8">
+               R${{elemento_da_lista[1][1]}} 
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+            <ion-button color="danger" size="small" (click)="remove(elemento_da_lista[0][0])">
+              <ion-icon name="close-circle-outline"></ion-icon>
+            </ion-button>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
+    <div id = "soma">
+      <ion-button color = "light" size = "small">
+      <ion-title color = "dark" >Soma:{{soma}}</ion-title> 
+     </ion-button>
+     </div>
+ 
+   </div>  
+ </ion-content>
